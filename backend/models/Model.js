@@ -6,7 +6,9 @@ const Schema = mongoose.Schema
 const userSchema = new Schema({
     googleId: { type: String, required: true },
     name: { type: String, required: true },
-    mailId: { type: String, required: true }
+    mailId: { type: String, required: true },
+    itemList: [{ type: mongoose.Types.ObjectId, required: false }],
+    workoutPlan: { type: String, required: true, default: false },
 
 })
 const User = mongoose.model('User', userSchema)

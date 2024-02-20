@@ -22,6 +22,7 @@ router.post("/defaultHabit/makeDefaultHabitEntry", defaultHabitController.makeDe
 //gemini routes
 router.post("/gemini/askQuestion", geminiController.askQuestion);
 router.post("/gemini/getWeeklyWorkoutPlan", geminiController.getWeeklyWorkoutPlan);
+router.post("/gemini/ifUserHasWorkOutPlan", geminiController.ifUserHasWorkOutPlan);
 
 //chatforum routes
 router.post("/forumChat/addChat", forumChatController.addChat);
