@@ -39,6 +39,8 @@ const makeDefaultHabitEntry = asyncErrorHandler(async (req, res, next) => {
     }
     const tempDefaultHabit = await defaultHabit.findOne({ _id: habitId })
     const title = tempDefaultHabit.title
+    const unit = tempDefaultHabit.unit
+    console.log(unit)
     let result;
     const entry = await defaultHabitEntry.findOne({ habitId: habitId, googleId: googleId });
     if (entry) {
@@ -49,7 +51,8 @@ const makeDefaultHabitEntry = asyncErrorHandler(async (req, res, next) => {
             googleId,
             habitId,
             quantity,
-            title
+            title,
+            unit
         })
         result = await newEntry.save()
     }

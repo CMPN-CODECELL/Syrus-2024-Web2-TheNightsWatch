@@ -39,6 +39,7 @@ const defaultHabitEntrySchema = new Schema({
     habitId: { type: mongoose.Types.ObjectId, required: true },
     quantity: { type: Number, required: true },
     title: { type: String, required: true },
+    unit: { type: String, required: true },
 })
 
 const defaultHabitEntry = mongoose.model('defaultHabitEntry', defaultHabitEntrySchema)
