@@ -18,7 +18,7 @@ router.post("/customHabit/addCustomHabit", customHabitController.addCustomHabit)
 router.post("/defaultHabit/addDefaultHabit", defaultHabitController.addDefaultHabit);
 router.get("/defaultHabit/getAllDefaultHabits", defaultHabitController.getAllDefaultHabits);
 router.post("/defaultHabit/makeDefaultHabitEntry", defaultHabitController.makeDefaultHabitEntry);
-router.post("/defaultHabit/getAllDefaultHabitsEntry", defaultHabitController.getAllDefaultHabitsEntry);
+router.get("/defaultHabit/getAllDefaultHabitsEntry", defaultHabitController.getAllDefaultHabitsEntry);
 
 //gemini routes
 router.post("/gemini/askQuestion", geminiController.askQuestion);

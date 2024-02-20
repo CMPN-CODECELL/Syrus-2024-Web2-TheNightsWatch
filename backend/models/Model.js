@@ -7,7 +7,7 @@ const userSchema = new Schema({
     googleId: { type: String, required: true },
     name: { type: String, required: true },
     mailId: { type: String, required: true },
-    itemList: [{ type: mongoose.Types.ObjectId, required: false }],
+    itemList: [{ type: mongoose.Schema.Types.Mixed, required: false }],
     workoutPlan: { type: String, required: true, default: false },
 
 })

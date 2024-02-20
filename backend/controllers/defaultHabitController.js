@@ -37,24 +37,29 @@ const makeDefaultHabitEntry = asyncErrorHandler(async (req, res, next) => {
         throw new HttpError("googleId has error", 500)
 
     }
-    const tempDefaultHabit = await defaultHabit.findOne({ _id: habitId })
-    const title = tempDefaultHabit.title
-    const unit = tempDefaultHabit.unit
-    console.log(unit)
+    // const tempDefaultHabit = await defaultHabit.findOne({ _id: habitId })
+    // const title = tempDefaultHabit.title
+    // const unit = tempDefaultHabit.unit
+    // console.log(unit)
     let result;
-    const entry = await defaultHabitEntry.findOne({ habitId: habitId, googleId: googleId });
+    const entry = await defaultHabitEntry.findOne({
+        habitId: habitId,
+        googleId: googleId
+    });
+    console.log(entry)
     if (entry) {
         entry.quantity = quantity
         result = await entry.save();
     } else {
-        const newEntry = new defaultHabitEntry({
-            googleId,
-            habitId,
-            quantity,
-            title,
-            unit
-        })
-        result = await newEntry.save()
+        console.log("here")
+        // const newEntry = new defaultHabitEntry({
+        //     googleId,
+        //     habitId,
+        //     quantity,
+        //     title,
+        //     unit
+        // })
+        // result = await newEntry.save()
     }
 
     if (!result) {
@@ -65,8 +70,7 @@ const makeDefaultHabitEntry = asyncErrorHandler(async (req, res, next) => {
 
 
 const getAllDefaultHabitsEntry = asyncErrorHandler(async (req, res, next) => {
-    const { googleId } = req.body;
-    const result = await defaultHabitEntry.find({ googleId: googleId });
+    const result = await defaultHabitEntry.find({ googleId: "root" });
     let arr = [];
     result.forEach(element => {
         arr.push(
