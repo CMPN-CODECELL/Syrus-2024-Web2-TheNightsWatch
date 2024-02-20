@@ -6,7 +6,9 @@ const Schema = mongoose.Schema
 const userSchema = new Schema({
     googleId: { type: String, required: true },
     name: { type: String, required: true },
-    mailId: { type: String, required: true }
+    mailId: { type: String, required: true },
+    itemList: [{ type: mongoose.Types.ObjectId, required: false }],
+    workoutPlan: { type: String, required: true, default: false },
 
 })
 const User = mongoose.model('User', userSchema)
@@ -39,6 +41,25 @@ const defaultHabitEntrySchema = new Schema({
 })
 
 const defaultHabitEntry = mongoose.model('defaultHabitEntry', defaultHabitEntrySchema)
+
+const forumChatSchema = new Schema({
+    googleId: { type: String, required: true },
+    text: { type: String, required: true },
+    timeStamp: { type: Date, required: true, default: Date.now }
+})
+
+const forumChat = mongoose.model('forumChat', forumChatSchema)
+
+const itemsSchema = new Schema({
+    title: { type: String, required: true },
+    type: { type: String, required: true },
+    rarity: { type: String, required: true },
+    imageUrl: { type: String, required: true },
+})
+
+const items = mongoose.model('items', itemsSchema)
+
+
 class HttpError extends Error {
     constructor(message, errorCode) {
         super(message);
@@ -78,6 +99,8 @@ exports.User = User
 exports.customHabit = customHabit
 exports.defaultHabit = defaultHabit
 exports.defaultHabitEntry = defaultHabitEntry
+exports.forumChat = forumChat
+exports.items = items
 exports.askGemini = askGemini
 exports.HttpError = HttpError
 exports.asyncErrorHandler = asyncErrorHandler
