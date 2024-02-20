@@ -49,10 +49,10 @@ function NavDrawer() {
       <div className="fixed top-0 left-0 z-20 lg:relative">
         <div className={navDrawerClass}>
           <NavDrawerLink to="/" icon={<MdHome className="w-8 h-8" />} text="Today's habits" onClick={() => setIsOpen(false)} />
-          <NavDrawerLink to="/habits" icon={<MdCheckCircle className="w-8 h-8" />} text="Your habits" onClick={() => setIsOpen(false)} />
-          <NavDrawerLink to="/progress" icon={<MdBarChart className="w-8 h-8" />} text="Progress" onClick={() => setIsOpen(false)} />
-          <NavDrawerLink to="/goals" icon={<FiTarget className="w-8 h-8" />} text="Goals" onClick={() => setIsOpen(false)} />
-          <NavDrawerLink to="/chats" icon={<FiHeadphones className="w-8 h-8" />} text="Chat Forum" onClick={() => setIsOpen(false)} />
+          <NavDrawerLink to="/workout" icon={<MdCheckCircle className="w-8 h-8" />} text="Workout" onClick={() => setIsOpen(false)} />
+          <NavDrawerLink to="/rewards" icon={<MdBarChart className="w-8 h-8" />} text="Rewards" onClick={() => setIsOpen(false)} />
+          <NavDrawerLink to="/forum" icon={<FiTarget className="w-8 h-8" />} text="Forum" onClick={() => setIsOpen(false)} />
+          <NavDrawerLink to="/resources" icon={<FiHeadphones className="w-8 h-8" />} text="Resources" onClick={() => setIsOpen(false)} />
         </div>
 
         <div className={darkeningAreaClass} onClick={() => setIsOpen(false)}></div>

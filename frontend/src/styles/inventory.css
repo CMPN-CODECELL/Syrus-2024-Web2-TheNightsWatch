@@ -5,12 +5,12 @@
     align-items: center;
     width: 100%;
     margin: auto;
-    margin-top: 10em;
+    margin-top: 7em;
 }  
 
 .inventory-header{
-    font-style: bold;
-    font-size: larger;
+    font-weight: 400;
+    font-size: 2rem;
     text-align: center;
     margin-top: 5px;
 }  
@@ -34,7 +34,24 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow */
 }
 
+.reward-row {
+    display: flex;
+    /* flex-wrap: wrap; */
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 2em;
+    height: 10em;
+}  
 
+.reward {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 14%;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(171, 56, 56, 0.1); 
+}
 
 
 .image {

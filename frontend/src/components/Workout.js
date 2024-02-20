@@ -1,17 +1,17 @@
-import googleId from '../../env.js'
+import googleId from '../env.js'
 import React, { useState } from 'react';
 import { TextField, Button, Select, MenuItem, FormControl, InputLabel } from '@mui/material';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import Markdown from 'react-markdown';
 
-const YourComponent = () => {
+const Workout = () => {
     const [sex, setSex] = useState('');
     const [age, setAge] = useState('');
     const [weight, setWeight] = useState('');
     const [goal, setGoal] = useState('');
     const [days, setDays] = useState('');
-    const [googleid, setGoogle] = useState(googleId);
     const [apiResponse, setApiResponse] = useState('');
+    const [googleid, setGoogle] = useState(googleId);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -107,14 +107,6 @@ const YourComponent = () => {
                             margin="normal"
                         />
 
-                        <TextField
-                            label="Number of Workout Days"
-                            type="number"
-                            value={days}
-                            onChange={(e) => setDays(e.target.value)}
-                            fullWidth
-                            margin="normal"
-                        />
 
                         <Button type="submit" variant="contained" color="primary" fullWidth>
                             Submit
@@ -130,4 +122,4 @@ const YourComponent = () => {
     );
 };
 
-export default YourComponent;
+export default Workout;
