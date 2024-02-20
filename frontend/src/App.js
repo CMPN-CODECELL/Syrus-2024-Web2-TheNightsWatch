@@ -1,25 +1,13 @@
-import React, { Component } from 'react';
-import './App.css';
+import { Route, Routes } from 'react-router-dom';
+import NavDrawer from './components/navigation/NavDrawer';
 
-class App extends Component {
-  state = {users: []}
-
-  componentDidMount() {
-    fetch('/users')
-      .then(res => res.json())
-      .then(users => this.setState({ users }));
-  }
-
-  render() {
-    return (
-      <div className="App">
-        <h1>Users</h1>
-        {this.state.users.map(user =>
-          <div key={user.id}>{user.username}</div>
-        )}
-      </div>
-    );
-  }
+function App() {
+  return (
+    <div className="relative h-screen bg-neutral-1 lg:flex">
+      <NavDrawer />
+      <div className="absolute bottom-0 w-full h-full waves"></div>
+    </div>
+  );
 }
 
 export default App;
