@@ -1,4 +1,4 @@
-const { defaultHabit, HttpError, asyncErrorHandler } = require("../models/Model")
+const { defaultHabit, HttpError, asyncErrorHandler, User, defaultHabitEntry } = require("../models/Model")
 
 const addDefaultHabit = asyncErrorHandler(async (req, res, next) => {
     const { title, description, unit, quantity } = req.body;
@@ -28,5 +28,35 @@ const getAllDefaultHabits = asyncErrorHandler(async (req, res, next) => {
     res.json({ habits: arr })
 })
 
+//not tested
+const makeDefaultHabitEntry = asyncErrorHandler(async (req, res, next) => {
+    const { googleId, habitId, quantity } = req.body;
+
+    const user = await User.findOne({ googleId: googleId });
+    if (!user) {
+        throw new HttpError("googleId has error", 500)
+
+    }
+    let result;
+    const entry = await defaultHabitEntry.findOne({ habitID: habitId, googleId: googleId });
+    if (entry) {
+        entry.quantity = quantity
+        result = await entry.save();
+    } else {
+        const newEntry = new defaultHabitEntry({
+            googleId,
+            habitId,
+            quantity
+        })
+        result = await newEntry.save()
+    }
+
+    if (!result) {
+        throw new HttpError("adding default habit entry failed", 500)
+    }
+    res.json({ message: result })
+})
+
 exports.getAllDefaultHabits = getAllDefaultHabits
 exports.addDefaultHabit = addDefaultHabit;
+exports.makeDefaultHabitEntry = makeDefaultHabitEntry

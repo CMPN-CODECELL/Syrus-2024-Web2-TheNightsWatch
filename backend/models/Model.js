@@ -31,6 +31,14 @@ const defaultHabitSchema = new Schema({
 
 const defaultHabit = mongoose.model('defaultHabit', defaultHabitSchema)
 
+
+const defaultHabitEntrySchema = new Schema({
+    googleId: { type: String, required: true },
+    habitId: { type: mongoose.Types.ObjectId, required: true },
+    quantity: { type: Number, required: true },
+})
+
+const defaultHabitEntry = mongoose.model('defaultHabitEntry', defaultHabitEntrySchema)
 class HttpError extends Error {
     constructor(message, errorCode) {
         super(message);
@@ -69,6 +77,7 @@ async function askGemini(question) {
 exports.User = User
 exports.customHabit = customHabit
 exports.defaultHabit = defaultHabit
+exports.defaultHabitEntry = defaultHabitEntry
 exports.askGemini = askGemini
 exports.HttpError = HttpError
 exports.asyncErrorHandler = asyncErrorHandler
