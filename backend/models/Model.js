@@ -48,6 +48,14 @@ const forumChatSchema = new Schema({
 
 const forumChat = mongoose.model('forumChat', forumChatSchema)
 
+const itemsSchema = new Schema({
+    title: { type: String, required: true },
+    type: { type: String, required: true },
+    rarity: { type: String, required: true },
+    imageUrl: { type: String, required: true },
+})
+
+const items = mongoose.model('items', itemsSchema)
 
 
 class HttpError extends Error {
@@ -90,6 +98,7 @@ exports.customHabit = customHabit
 exports.defaultHabit = defaultHabit
 exports.defaultHabitEntry = defaultHabitEntry
 exports.forumChat = forumChat
+exports.items = items
 exports.askGemini = askGemini
 exports.HttpError = HttpError
 exports.asyncErrorHandler = asyncErrorHandler
