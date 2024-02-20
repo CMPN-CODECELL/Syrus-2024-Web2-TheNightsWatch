@@ -1,0 +1,49 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: auto;
+    margin-top: 10em;
+}  
+
+.inventory-header{
+    font-style: bold;
+    font-size: larger;
+    text-align: center;
+    margin-top: 5px;
+}  
+
+.item-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 80%;
+    height: 14em;
+}  
+
+.item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 20%;
+    margin: 1.2em;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow */
+}
+
+
+
+
+.image {
+    width: 100%;
+    height: 100%;/* Adjust image height */
+    /* object-fit: cover; Ensure the image retains its aspect ratio */
+  }
+  
+  .hidden {
+    display: none;
+  }
+  
