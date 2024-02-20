@@ -19,6 +19,7 @@ router.get("/defaultHabit/getAllDefaultHabits", defaultHabitController.getAllDef
 
 //gemini routes
 router.post("/gemini/askQuestion", geminiController.askQuestion);
+router.post("/gemini/getWeeklyWorkoutPlan", geminiController.getWeeklyWorkoutPlan);
 
 
 module.exports = router;
