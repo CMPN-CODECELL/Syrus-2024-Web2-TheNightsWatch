@@ -39,6 +39,17 @@ const defaultHabitEntrySchema = new Schema({
 })
 
 const defaultHabitEntry = mongoose.model('defaultHabitEntry', defaultHabitEntrySchema)
+
+const forumChatSchema = new Schema({
+    googleId: { type: String, required: true },
+    text: { type: String, required: true },
+    timeStamp: { type: Date, required: true, default: Date.now }
+})
+
+const forumChat = mongoose.model('forumChat', forumChatSchema)
+
+
+
 class HttpError extends Error {
     constructor(message, errorCode) {
         super(message);
@@ -78,6 +89,7 @@ exports.User = User
 exports.customHabit = customHabit
 exports.defaultHabit = defaultHabit
 exports.defaultHabitEntry = defaultHabitEntry
+exports.forumChat = forumChat
 exports.askGemini = askGemini
 exports.HttpError = HttpError
 exports.asyncErrorHandler = asyncErrorHandler
