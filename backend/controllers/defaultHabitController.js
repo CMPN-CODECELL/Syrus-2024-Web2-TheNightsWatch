@@ -37,8 +37,10 @@ const makeDefaultHabitEntry = asyncErrorHandler(async (req, res, next) => {
         throw new HttpError("googleId has error", 500)
 
     }
+    const tempDefaultHabit = await defaultHabit.findOne({ _id: habitId })
+    const title = tempDefaultHabit.title
     let result;
-    const entry = await defaultHabitEntry.findOne({ habitID: habitId, googleId: googleId });
+    const entry = await defaultHabitEntry.findOne({ habitId: habitId, googleId: googleId });
     if (entry) {
         entry.quantity = quantity
         result = await entry.save();
@@ -46,7 +48,8 @@ const makeDefaultHabitEntry = asyncErrorHandler(async (req, res, next) => {
         const newEntry = new defaultHabitEntry({
             googleId,
             habitId,
-            quantity
+            quantity,
+            title
         })
         result = await newEntry.save()
     }
@@ -57,6 +60,21 @@ const makeDefaultHabitEntry = asyncErrorHandler(async (req, res, next) => {
     res.json({ message: result })
 })
 
+
+const getAllDefaultHabitsEntry = asyncErrorHandler(async (req, res, next) => {
+    const { googleId } = req.body;
+    const result = await defaultHabitEntry.find({ googleId: googleId });
+    let arr = [];
+    result.forEach(element => {
+        arr.push(
+            element
+        )
+    });
+    res.json({ habits: arr })
+})
+
+
 exports.getAllDefaultHabits = getAllDefaultHabits
 exports.addDefaultHabit = addDefaultHabit;
 exports.makeDefaultHabitEntry = makeDefaultHabitEntry
+exports.getAllDefaultHabitsEntry = getAllDefaultHabitsEntry

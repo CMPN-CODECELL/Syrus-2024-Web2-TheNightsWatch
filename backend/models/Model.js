@@ -38,6 +38,7 @@ const defaultHabitEntrySchema = new Schema({
     googleId: { type: String, required: true },
     habitId: { type: mongoose.Types.ObjectId, required: true },
     quantity: { type: Number, required: true },
+    title: { type: String, required: true },
 })
 
 const defaultHabitEntry = mongoose.model('defaultHabitEntry', defaultHabitEntrySchema)
