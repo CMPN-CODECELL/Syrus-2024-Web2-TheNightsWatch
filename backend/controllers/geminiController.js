@@ -1,4 +1,4 @@
-const { asyncErrorHandler, HttpError, askGemini, User, sendMail } = require("../models/Model")
+const { asyncErrorHandler, HttpError, askGemini, User } = require("../models/Model")
 
 
 const askQuestion = asyncErrorHandler(async (req, res, next) => {
@@ -45,17 +45,7 @@ const getWeeklyWorkoutPlan = asyncErrorHandler(async (req, res, next) => {
     res.json({ response: result });
 })
 
-const sendMailAPI = asyncErrorHandler(async (req, res, next) => {
-    const { userMail, subject, content } = req.body;
 
-    const result = await sendMail(userMail, subject, content)
-    if (!result) {
-        throw new HttpError("Something went wrong", 500)
-    }
-    // const temp = await User.save();
-    res.json({ response: result });
-})
 exports.askQuestion = askQuestion
 exports.getWeeklyWorkoutPlan = getWeeklyWorkoutPlan
 exports.ifUserHasWorkOutPlan = ifUserHasWorkOutPlan
-exports.sendMailAPI = sendMailAPI
