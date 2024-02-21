@@ -97,6 +97,25 @@ async function askGemini(question) {
 }
 
 
+const sendMail = async (userMail, subject, content) => {
+    let transporter = nodemailer.createTransport({
+        service: "hotmail",
+        auth: {
+            user: "theNightsWatch.no.reply@outlook.com",
+            pass: "SyrusIsBackin2024",
+        },
+    });
+
+    let info = await transporter.sendMail({
+        from: '"theNightsWatch-no-reply" <theNightsWatch.no.reply@outlook.com>', // sender address
+        to: userMail, // list of receivers
+        subject: subject, // Subject line
+        text: content, // plain text body
+        //html: "<b>Hello world? this froom express dude nust env</b>", // html body
+    });
+    return info
+}
+
 exports.User = User
 exports.customHabit = customHabit
 exports.defaultHabit = defaultHabit
@@ -104,5 +123,6 @@ exports.defaultHabitEntry = defaultHabitEntry
 exports.forumChat = forumChat
 exports.items = items
 exports.askGemini = askGemini
+exports.sendMail = sendMail
 exports.HttpError = HttpError
 exports.asyncErrorHandler = asyncErrorHandler
