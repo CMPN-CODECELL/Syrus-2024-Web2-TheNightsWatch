@@ -34,6 +34,7 @@ const Chat = () => {
 
   return (
     <div className="flex flex-col h-screen">
+      <div className="chat-container">
       <div className="chat-messages">
         {chats.map((chat, index) => (
           <div key={index} className="chat-message">
@@ -50,6 +51,7 @@ const Chat = () => {
           </button>
         </form>
       </div>
+    </div>
     </div>
   );
 };

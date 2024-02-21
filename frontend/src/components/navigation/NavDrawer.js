@@ -3,8 +3,8 @@ import classNames from "classnames";
 
 import { IoReorderThreeOutline } from "react-icons/io5";
 import { MdHome, MdCheckCircle, MdBarChart } from "react-icons/md";
-import { FiTarget } from "react-icons/fi";
-import { FiHeadphones } from "react-icons/fi";
+// import { FiTarget } from "react-icons/fi";
+import { FiHeadphones, FiSlack } from "react-icons/fi";
 
 import Icon from "../other/Icon";
 import NavDrawerLink from "./NavDrawerLink";
@@ -51,8 +51,8 @@ function NavDrawer() {
           <NavDrawerLink to="/" icon={<MdHome className="w-8 h-8" />} text="Today's habits" onClick={() => setIsOpen(false)} />
           <NavDrawerLink to="/workout" icon={<MdCheckCircle className="w-8 h-8" />} text="Workout" onClick={() => setIsOpen(false)} />
           <NavDrawerLink to="/rewards" icon={<MdBarChart className="w-8 h-8" />} text="Rewards" onClick={() => setIsOpen(false)} />
-          <NavDrawerLink to="/forum" icon={<FiTarget className="w-8 h-8" />} text="Forum" onClick={() => setIsOpen(false)} />
-          <NavDrawerLink to="/resources" icon={<FiHeadphones className="w-8 h-8" />} text="Resources" onClick={() => setIsOpen(false)} />
+          <NavDrawerLink to="/forum" icon={<FiHeadphones className="w-8 h-8" />} text="Forum" onClick={() => setIsOpen(false)} />
+          <NavDrawerLink to="/resources" icon={<FiSlack className="w-8 h-8" />} text="Resources" onClick={() => setIsOpen(false)} />
         </div>
 
         <div className={darkeningAreaClass} onClick={() => setIsOpen(false)}></div>
