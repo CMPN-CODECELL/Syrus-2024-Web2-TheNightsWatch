@@ -6,6 +6,7 @@ import Workout from "./components/Workout.js";
 import Chat from "./components/chats/Chat";
 import Resources from "./components/resources/Resources";
 import NotFoundPage from "./components/other/NotFoundPage.js";
+import HabitsPage from "./components/habit/HabitsPage.js";
 
 function App() {
   return (
@@ -13,8 +14,8 @@ function App() {
       <NavDrawer />
       <div className="absolute bottom-0 w-full h-full waves">
         <Routes>
-          <Route path="/*">
-            <Route index />
+          <Route path="/">
+            <Route index element={<HabitsPage />}/>
           </Route>
           <Route path="/workout/*">
             <Route index element={<Workout />} />

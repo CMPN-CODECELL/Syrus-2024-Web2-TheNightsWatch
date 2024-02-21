@@ -1,0 +1,68 @@
+.pageClass {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 2rem; /* Equivalent to space-y-8 */
+    height: 140%;
+    max-width:70%;
+    padding-top: 4.5rem;
+    padding-bottom: 2rem; /* Equivalent to pb-8 */
+    padding-left: 1rem; /* Equivalent to px-4 */
+    padding-right: 1rem; /* Equivalent to px-4 */
+    animation-name: slide-down;
+    animation-duration: 0.5s; /* This is just an example, replace with actual timing */
+    overflow: auto;
+    margin: auto;
+    margin-top: 50px;
+  }
+  
+  @media (min-width: 640px) { /* Equivalent to sm */
+    .pageClass {
+      height: auto; /* Equivalent to sm:h-auto */
+      padding-top: 1rem; /* Equivalent to sm:pt-4 */
+      border-radius: 0.5rem; /* Equivalent to sm:rounded-xl */
+      box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1); /* Equivalent to sm:shadow-lg */
+      background-color: #ffffff; /* Equivalent to sm:bg-[white] */
+    }
+  }
+  
+  @media (min-width: 1024px) { /* Equivalent to lg */
+    .pageClass {
+      min-width: 70%; /* Equivalent to lg:min-w-[70%] */
+    }
+  }
+  
+  @media (min-width: 1280px) { /* Equivalent to xl */
+    .pageClass {
+      min-width: 50%; /* Equivalent to xl:min-w-[50%] */
+    }
+  }
+  
+  .habitsClass {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem; /* Equivalent to space-y-2 */
+  }
+  
+  .habitsClass.justify-center {
+    justify-content: center;
+  }
+  
+  .habitsClass.h-full {
+    height: 100%;
+  }
+  .text-xl {
+    font-size: 1.25rem; /* Equivalent to text-xl */
+  }
+  
+  .text-center {
+    text-align: center; /* Equivalent to text-center */
+  }
+  
+  .font-bold {
+    font-weight: 700; /* Equivalent to font-bold */
+  }
+  
+  .text-neutral-4 {
+    color: #6B7280; /* Equivalent to text-neutral-4 */
+  }

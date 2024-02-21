@@ -29,7 +29,7 @@ function NavDrawer() {
     {
       "animate-open-nav-drawer": isOpen,
       "max-lg:animate-close-nav-drawer lg:inline-flex": isOpen === false,
-      "hidden lg:inline-flex": isOpen === null,
+      "hidden lg:inline-flex": isOpen === false,
     }
   );
 
@@ -42,7 +42,7 @@ function NavDrawer() {
   return (
     <>
       <Icon
-        icon={<IoReorderThreeOutline className="fixed z-30 top-4 left-4 w-10 h-10 duration-200 hover:opacity-80 sm:top-6 sm:left-6 lg:hidden" onClick={() => setIsOpen(!isOpen)} />}
+        icon={<IoReorderThreeOutline className="fixed z-30 top-4 left-4 w-10 h-10 duration-100 hover:opacity-80 sm:top-6 sm:left-6 lg:visible" onClick={() => setIsOpen(!isOpen)} />}
         color={isOpen ? "white" : "#3A4874"}
       />
 

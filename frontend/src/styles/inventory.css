@@ -20,7 +20,7 @@
     flex-wrap: wrap;
     justify-content: center;
     width: 80%;
-    height: 14em;
+    height: 10em;
 }  
 
 .item {
@@ -28,7 +28,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    max-width: 20%;
+    max-width: 14%;
     margin: 1.2em;
     text-align: center;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow */
@@ -39,7 +39,7 @@
     /* flex-wrap: wrap; */
     justify-content: center;
     width: 100%;
-    margin-bottom: 2em;
+    margin-top: 10em;
     height: 10em;
 }  
 

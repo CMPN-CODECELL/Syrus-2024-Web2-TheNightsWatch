@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import "./Chat.css"; 
+import "./Chat.css";
 
 const Chat = () => {
   const [chats, setChats] = useState([]);
   const [text, setText] = useState("");
-  const [googleId, setGoogleId] = useState(""); 
+  const [googleId, setGoogleId] = useState("");
 
   useEffect(() => {
     fetchChats();
@@ -26,7 +26,7 @@ const Chat = () => {
       await axios.post("http://localhost:5000/forumChat/addChat", { googleId, text });
       setText("");
       setGoogleId("");
-      fetchChats(); 
+      fetchChats();
     } catch (error) {
       console.error("Error adding chat:", error);
     }
@@ -35,23 +35,24 @@ const Chat = () => {
   return (
     <div className="flex flex-col h-screen">
       <div className="chat-container">
-      <div className="chat-messages">
-        {chats.map((chat, index) => (
-          <div key={index} className="chat-message">
-            <span className="chat-username">{chat.googleId}: </span>
-            <span>{chat.text}</span>
-          </div>
-        ))}
+        <h1 className="font-bold text-2xl text-center">Fitness Freaks</h1>
+        <div className="chat-messages">
+          {chats.map((chat, index) => (
+            <div key={index} className="chat-message">
+              <span className="chat-username">{chat.googleId}: </span>
+              <span>{chat.text}</span>
+            </div>
+          ))}
 
-        <form onSubmit={handleSubmit} className="chat-input-form">
-          <input type="text" value={googleId} onChange={(e) => setGoogleId(e.target.value)} className="chat-input" placeholder="Enter your Google ID..." />
-          <input type="text" value={text} onChange={(e) => setText(e.target.value)} className="chat-input" placeholder="Type your message..." />
-          <button type="submit" className="chat-submit-button">
-            Send
-          </button>
-        </form>
+          <form onSubmit={handleSubmit} className="chat-input-form">
+            <input type="text" value={googleId} onChange={(e) => setGoogleId(e.target.value)} className="chat-input" placeholder="Enter your Name..." />
+            <input type="text" value={text} onChange={(e) => setText(e.target.value)} className="chat-input" placeholder="Type your message..." />
+            <button type="submit" className="chat-submit-button">
+              Send
+            </button>
+          </form>
+        </div>
       </div>
-    </div>
     </div>
   );
 };

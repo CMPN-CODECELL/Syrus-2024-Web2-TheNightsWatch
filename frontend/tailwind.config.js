@@ -21,8 +21,8 @@ module.exports = {
       failure: "#c93c3c",
     },
     animation: {
-      "open-nav-drawer": "openNavDrawer 0.3s ease-out 0s 1 normal forwards",
-      "close-nav-drawer": "closeNavDrawer 0.3s ease-out 0s 1 normal forwards",
+      "open-nav-drawer": "openNavDrawer 0.5s ease-out 0s 1 normal forwards",
+      "close-nav-drawer": "closeNavDrawer 1s ease-in 0s 1 normal forwards",
       "show-darkening-area": "showDarkeningArea 0.3s ease-out 0s 1 normal forwards",
       "hide-darkening-area": "hideDarkeningArea 0.3s ease-out 0s 1 normal forwards",
       "slide-down": "slideDown 0.5s ease-out 0s 1 normal forwards",
