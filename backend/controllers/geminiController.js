@@ -36,12 +36,12 @@ const getWeeklyWorkoutPlan = asyncErrorHandler(async (req, res, next) => {
     if (!result) {
         throw new HttpError("Something went wrong", 500)
     }
-    const user = await User.findOne({ googleId: googleId })
-    if (!user) {
-        throw new HttpError("User not found", 404)
-    }
-    user.workoutPlan = result;
-    const temp = await User.save();
+    // const user = await User.findOne({ googleId: googleId })
+    // if (!user) {
+    //     throw new HttpError("User not found", 404)
+    // }
+    // user.workoutPlan = result;
+    // const temp = await User.save();
     res.json({ response: result });
 })
 

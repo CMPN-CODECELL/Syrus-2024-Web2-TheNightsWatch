@@ -1,6 +1,5 @@
-import googleId from '../env.js'
 import React, { useState } from 'react';
-import { TextField, Button, Select, MenuItem, FormControl, InputLabel } from '@mui/material';
+import { TextField, Button, Select, MenuItem, FormControl, InputLabel, CircularProgress } from '@mui/material';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import Markdown from 'react-markdown';
 
@@ -11,10 +10,11 @@ const Workout = () => {
     const [goal, setGoal] = useState('');
     const [days, setDays] = useState('');
     const [apiResponse, setApiResponse] = useState('');
-    const [googleid, setGoogle] = useState(googleId);
+    const [loading, setLoading] = useState(false);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        setLoading(true);
 
         const formData = {
             sex,
@@ -44,6 +44,8 @@ const Workout = () => {
             setApiResponse(output);
         } catch (error) {
             console.error('Error:', error.message);
+        } finally {
+            setLoading(false);
         }
     };
 
@@ -107,14 +109,13 @@ const Workout = () => {
                             margin="normal"
                         />
 
-
                         <Button type="submit" variant="contained" color="primary" fullWidth>
-                            Submit
+                            {loading ? <CircularProgress size={24} color="inherit" /> : 'Submit'}
                         </Button>
                     </form>
                 </div>
 
-                <div style= {{ width: '45%' }}>
+                <div style={{ width: '45%' }}>
                     <Markdown>{apiResponse}</Markdown>
                 </div>
             </div>
